@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TableViewCellExpandSwift3" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FMS-3O-HuF">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XYj-jI-fqG">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="zDh-hd-6g4" customClass="expandCell" customModule="TableViewCellExpandSwift3" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zDh-hd-6g4" id="geP-g7-IHO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yuW-qW-lSy">
+                                                            <rect key="frame" x="8" y="5" width="359" height="33.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="yuW-qW-lSy" secondAttribute="trailing" constant="8" id="89v-ps-9iL"/>
+                                                        <constraint firstItem="yuW-qW-lSy" firstAttribute="top" secondItem="geP-g7-IHO" secondAttribute="top" constant="5" id="IPY-5m-g7E"/>
+                                                        <constraint firstItem="yuW-qW-lSy" firstAttribute="leading" secondItem="geP-g7-IHO" secondAttribute="leading" constant="8" id="aKD-30-VER"/>
+                                                        <constraint firstAttribute="bottom" secondItem="yuW-qW-lSy" secondAttribute="bottom" constant="5" id="lVE-yn-46t"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="lblDesc" destination="yuW-qW-lSy" id="Qnv-4Z-ff0"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="RQN-fK-JF4"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="DpX-nb-Ei8"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="XYj-jI-fqG" secondAttribute="trailing" id="5gR-Gt-ew9"/>
+                                    <constraint firstItem="XYj-jI-fqG" firstAttribute="leading" secondItem="FMS-3O-HuF" secondAttribute="leading" id="5gR-sh-Hbr"/>
+                                    <constraint firstAttribute="bottom" secondItem="XYj-jI-fqG" secondAttribute="bottom" id="Gdr-Ml-4dp"/>
+                                    <constraint firstItem="XYj-jI-fqG" firstAttribute="top" secondItem="FMS-3O-HuF" secondAttribute="top" id="L69-c9-0sF"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="FMS-3O-HuF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="33n-qv-gFt"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="FMS-3O-HuF" secondAttribute="bottom" id="4yM-Ow-XkV"/>
+                            <constraint firstAttribute="trailing" secondItem="FMS-3O-HuF" secondAttribute="trailing" id="9W0-N9-5Lb"/>
+                            <constraint firstItem="FMS-3O-HuF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="yGq-dm-kwL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableview" destination="XYj-jI-fqG" id="agr-fa-Ypc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-748" y="-71"/>
+        </scene>
+    </scenes>
+</document>
