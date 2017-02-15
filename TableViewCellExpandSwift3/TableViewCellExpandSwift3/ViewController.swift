@@ -29,18 +29,20 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     func handleTap(_ sender: UITapGestureRecognizer? = nil)  {
         if let viewnew = sender?.view as! HeaderView?{
             
             var dicDataNew = arrayData[viewnew.tag]
             if  dicDataNew["expand"] == "0" {
-             arrayData[viewnew.tag].updateValue("1", forKey: "expand")
-            // viewnew.animateImageClockwise(imageview: viewnew.imgview, value: CGFloat(180))
+            arrayData[viewnew.tag].updateValue("1", forKey: "expand")
+            viewnew.animateImageClockwise(imageview: viewnew.imgview, value: -180.0)
             }
             else {
                 arrayData[viewnew.tag].updateValue("0", forKey: "expand")
-                //viewnew.animateImageClockwise(imageview: viewnew.imgview, value: CGFloat(0))
+                viewnew.animateImageAntiClockwise(imageview: viewnew.imgview, value: CGFloat(M_PI))
             }
+            
             self.tableview.reloadSections([viewnew.tag], with: UITableViewRowAnimation.none)
         }
     }
