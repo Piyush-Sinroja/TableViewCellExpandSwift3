@@ -14,14 +14,14 @@ class HeaderView: UIView {
     @IBOutlet weak var lblHeader: UILabel!
     
     func animateImageClockwise(imageview: UIImageView, value: Double)  {
-        UIView.animate(withDuration: 0.3, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: UIView.AnimationOptions.curveEaseIn, animations: {
              self.imgview.transform = CGAffineTransform(rotationAngle: CGFloat(value * M_PI))
         }) { (Bool) in
         }
     }
     
     func animateImageAntiClockwise(imageview: UIImageView, value: CGFloat)  {
-        UIView.animate(withDuration: 0.3, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
             self.imgview.transform = CGAffineTransform(rotationAngle: CGFloat(value))
         }) { (Bool) in
             

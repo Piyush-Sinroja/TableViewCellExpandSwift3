@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableview.estimatedRowHeight = 44.0
-        tableview.rowHeight = UITableViewAutomaticDimension
+        tableview.rowHeight = UITableView.automaticDimension
         setupArrayAndDic()
     }
     func setupArrayAndDic() {
@@ -30,20 +30,20 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func handleTap(_ sender: UITapGestureRecognizer? = nil)  {
+    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil)  {
         if let viewnew = sender?.view as! HeaderView?{
             
-            var dicDataNew = arrayData[viewnew.tag]
+            let dicDataNew = arrayData[viewnew.tag]
             if  dicDataNew["expand"] == "0" {
             arrayData[viewnew.tag].updateValue("1", forKey: "expand")
             viewnew.animateImageClockwise(imageview: viewnew.imgview, value: -180.0)
             }
             else {
                 arrayData[viewnew.tag].updateValue("0", forKey: "expand")
-                viewnew.animateImageAntiClockwise(imageview: viewnew.imgview, value: CGFloat(M_PI))
+                viewnew.animateImageAntiClockwise(imageview: viewnew.imgview, value: CGFloat(Double.pi))
             }
             
-            self.tableview.reloadSections([viewnew.tag], with: UITableViewRowAnimation.none)
+            self.tableview.reloadSections([viewnew.tag], with: UITableView.RowAnimation.none)
         }
     }
 }
@@ -71,7 +71,7 @@ extension ViewController: UITableViewDataSource{
 extension ViewController: UITableViewDelegate, UIGestureRecognizerDelegate
 {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        return UITableView.automaticDimension
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
@@ -79,7 +79,7 @@ extension ViewController: UITableViewDelegate, UIGestureRecognizerDelegate
         
         print(arrayData)
     
-        var dicDataNew = arrayData[section]
+        let dicDataNew = arrayData[section]
         if  dicDataNew["expand"] == "0"
         {
             viewnew.imgview.transform = CGAffineTransform(rotationAngle: self.DEGREES_TO_RADIANS(value: 180.0))
@@ -104,6 +104,6 @@ extension ViewController: UITableViewDelegate, UIGestureRecognizerDelegate
     }
     
     func DEGREES_TO_RADIANS(value: CGFloat) -> CGFloat {
-        return ((CGFloat(M_PI) * value)/180.0)
+        return ((CGFloat(Double.pi) * value)/180.0)
     }
 }
